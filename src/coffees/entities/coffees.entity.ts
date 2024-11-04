@@ -15,8 +15,8 @@ export class Coffee {
   @Column()
   name: string;
 
-  @Column({nullable: true})
-  descriptions: string
+  @Column({ nullable: true })
+  descriptions: string;
 
   @Column({ default: 0 })
   recomendation: number;
