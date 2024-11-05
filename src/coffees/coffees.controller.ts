@@ -16,10 +16,14 @@ import { UpdateCoffeeDto } from './dto/update-coffee.dto/update-coffee.dto';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { Public } from 'src/common/decorators/public.decorators';
 import { Protocol } from 'src/common/decorators/protocol.decorators';
+import { ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('coffees')
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
+
+  @ApiForbiddenResponse({ description: 'Forbidden' })
   @Public()
   @Get()
   async findAll(
